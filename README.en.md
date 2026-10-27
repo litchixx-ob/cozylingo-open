@@ -1,12 +1,12 @@
 <div align="center">
 
-<a href="https://litchixx-ob.github.io/cozylingo-open/"><img src="docs/assets/banner.webp" alt="CozyLingo Open — 12,594 English word entries, daily lessons and Lingguo Mountain" width="100%"></a>
+<a href="https://www.cozylingo.com"><img src="docs/assets/banner.webp" alt="CozyLingo Open — 12,594 English word entries, daily lessons and Lingguo Mountain" width="100%"></a>
 
 # CozyLingo Open
 
 **12,594 entries · mnemonics · illustrations · IPA · examples · FSRS review · 1,015 grammar questions · Lingguo Mountain (WebGL)**
 
-[**Try it online ↗**](https://litchixx-ob.github.io/cozylingo-open/)　/　[demo video](docs/assets/demo.mp4)　/　[download dataset](data/)　/　[中文](README.md)
+[**Try it online (full hosted version) ↗**](https://www.cozylingo.com)　/　[demo video](docs/assets/demo.mp4)　/　[download dataset](data/)　/　[中文](README.md)
 
 [![Code: MIT](https://img.shields.io/badge/Code-MIT-17283B?style=flat-square)](LICENSE)
 [![Dataset: CC BY 4.0](https://img.shields.io/badge/Dataset-CC_BY_4.0-AD5038?style=flat-square)](CONTENT_LICENSE.md)
@@ -18,8 +18,12 @@
 ---
 
 **Version note**: this repo is the **open base edition** of CozyLingo — a working
-**client-side vocabulary app** plus its dataset. The online site
-([cozylingo.com](https://www.cozylingo.com)) evolves independently and may differ.
+**client-side vocabulary app** plus its dataset.
+
+"Try it online" points to the **full hosted version** ([cozylingo.com](https://www.cozylingo.com),
+with accounts and more content), which evolves independently and may differ. To run *this*
+repo, just serve the folder — see [Run locally](#run-locally). Zero dependencies, no build, ~30 seconds.
+
 Code and content are licensed separately (MIT / CC BY 4.0).
 
 ## What it is

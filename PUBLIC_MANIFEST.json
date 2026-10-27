@@ -1,8 +1,8 @@
 {
  "name": "CozyLingo Open",
- "generated": "2026-10-27",
+ "generated": "2026-10-28",
  "files": 25243,
- "bytes": 581668723,
+ "bytes": 581669129,
  "items": [
   {
    "path": ".github/ISSUE_TEMPLATE/config.yml",
@@ -46,13 +46,13 @@
   },
   {
    "path": "README.en.md",
-   "bytes": 6686,
-   "sha256": "d0ff997b1d786a4065c8c04396bd340e85c68bea2c0db9324dd84c764c04ad82"
+   "bytes": 6868,
+   "sha256": "aa3af8e26bd4fb47d9a5084cf686a31e71f588f64e7e6910388d161936ab0188"
   },
   {
    "path": "README.md",
-   "bytes": 7781,
-   "sha256": "1452dde1c76d9a2b9106810252687ca6fab320e2a718dee489aa1d4bd8ddfc95"
+   "bytes": 8005,
+   "sha256": "3303236ae1b6242bb9070b520a20dfef21bee7f72f6f8801e2d5425a30b22843"
   },
   {
    "path": "SECURITY.md",

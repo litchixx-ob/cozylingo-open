@@ -1,12 +1,12 @@
 <div align="center">
 
-<a href="https://litchixx-ob.github.io/cozylingo-open/"><img src="docs/assets/banner.webp" alt="CozyLingo Open — 12,594 个英语词条 + 今日小课 + 灵果山" width="100%"></a>
+<a href="https://www.cozylingo.com"><img src="docs/assets/banner.webp" alt="CozyLingo Open — 12,594 个英语词条 + 今日小课 + 灵果山" width="100%"></a>
 
 # CozyLingo Open · 蔻兹灵果开源词库
 
 **12,594 个英语词条 · 记忆法 · 插画 · 英美音标 · 例句 · FSRS 间隔复习 · 1,015 道语法题 · 灵果山进度**
 
-[**在线试用 ↗**](https://litchixx-ob.github.io/cozylingo-open/)　/　[演示视频](docs/assets/demo.mp4)　/　[下载词库](data/)　/　[English](README.en.md)
+[**在线试用（线上完整版）↗**](https://www.cozylingo.com)　/　[演示视频](docs/assets/demo.mp4)　/　[下载词库](data/)　/　[English](README.en.md)
 
 [![Code: MIT](https://img.shields.io/badge/Code-MIT-17283B?style=flat-square)](LICENSE)
 [![Dataset: CC BY 4.0](https://img.shields.io/badge/Dataset-CC_BY_4.0-AD5038?style=flat-square)](CONTENT_LICENSE.md)
@@ -17,8 +17,13 @@
 
 ---
 
-**版本说明**：本仓库是 CozyLingo 的**开源基础版**——一个能真正用来背单词的**纯前端应用**，外加配套词库数据集。
-在线网站（[cozylingo.com](https://www.cozylingo.com)）独立迭代，功能与仓库可能不同；代码与内容分别遵循 MIT / CC BY 4.0 授权。
+**版本说明**：本仓库是 CozyLingo 的**开源基础版** —— 一个能真正用来背单词的**纯前端应用**，外加配套词库数据集。
+
+上面的「在线试用」指向**线上完整版**（[cozylingo.com](https://www.cozylingo.com)，有账号体系与更多内容），
+它与本仓库独立迭代、功能可能不同。想跑**本仓库这个开源版**，按下面的「[本地运行](#本地运行)」起一个静态服务即可 ——
+零依赖、零构建、约 30 秒。
+
+代码与内容分别遵循 MIT / CC BY 4.0 授权。
 
 ## 这是什么
 
