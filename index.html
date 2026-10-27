@@ -4,26 +4,55 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CozyLingo Open · 英语词库 · 今日小课 · 语法精练</title>
+<meta name="description" content="12,594 个英语词条 + FSRS 间隔复习 + 1,015 道语法精练 + WebGL 灵果山。零依赖、无账号、本地优先的开源英语学习应用。">
+<meta name="color-scheme" content="light">
 <link rel="stylesheet" href="src/app.css">
 <link rel="stylesheet" href="src/cloze.css">
 <link rel="stylesheet" href="src/orchard.css">
 </head>
 <body>
-<header>
-  <h1>CozyLingo Open</h1>
-  <div class="sub" id="meta">加载中…</div>
-  <nav id="tabs"></nav>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#browse">
+      <span class="brand-mark" data-ico="spark"></span>
+      <span class="brand-name">CozyLingo <em>Open</em></span>
+    </a>
+    <nav class="tabs" id="tabs" aria-label="主导航"></nav>
+    <span class="head-meta" id="meta">加载中…</span>
+  </div>
 </header>
 
+<section class="hero" id="hero">
+  <div class="wrap">
+    <p class="eyebrow">开源基础版 · 无账号 · 本地优先</p>
+    <h1>一个能真正用来背单词的<b>英语词库应用</b></h1>
+    <p class="lead">
+      12,594 个词条，每条都带记忆法、插画、英美音标、例句与话题词频标注；
+      用 FSRS 排出今天该练哪些词，用 1,015 道语法题补语法，
+      再把整座词库铺成一座可以走进去的灵果山。全部跑在你的浏览器里。
+    </p>
+    <div class="hero-stats" id="hero-stats"></div>
+  </div>
+</section>
+
 <div class="bar" id="filters">
-  <input id="q" type="search" placeholder="搜单词或中文释义…" autocomplete="off">
-  <select id="lib"><option value="">全部词书</option></select>
-  <select id="topic"><option value="">全部话题</option></select>
-  <span class="count" id="count"></span>
+  <div class="wrap">
+    <input id="q" type="search" placeholder="搜单词或中文释义…" autocomplete="off" aria-label="搜索词条">
+    <select id="lib" aria-label="按词书筛选"><option value="">全部词书</option></select>
+    <select id="topic" aria-label="按话题筛选"><option value="">全部话题</option></select>
+    <button class="btn tiny accent" id="use-filter" hidden>用当前筛选练</button>
+    <span class="count" id="count"></span>
+  </div>
 </div>
 
-<main>
-  <section id="view-browse"><div class="grid" id="grid"></div></section>
+<main class="wrap">
+  <section id="view-browse">
+    <div class="grid" id="grid"></div>
+    <div class="more-wrap" id="more-wrap" hidden>
+      <button class="btn" id="more">加载更多</button>
+    </div>
+  </section>
 
   <section id="view-today" hidden>
     <div id="today-head"></div>
@@ -35,21 +64,31 @@
     <div id="cloze-body"></div>
   </section>
 
-  <section id="view-star" hidden>
-    <div id="star-host"></div>
-    <p class="muted small" style="text-align:center;margin-top:10px">
-      12,594 个词按「话题 = 方位、词频 = 海拔」铺成一座山。拖动旋转、滚轮缩放，点按星星查看单词；
-      学过的词会点亮，掌握的词变成金色。进度来自你本机的学习记录。
+  <section id="view-orchard" hidden>
+    <div class="sec-head">
+      <p class="eyebrow">12,594 个词 · 话题 × 词频</p>
+      <h2>灵果山</h2>
+      <p>整座词库按「话题 = 方位、词频 = 海拔」铺成一座山。学过的词会点亮，掌握的词变成金色。</p>
+    </div>
+    <div class="orchard-frame"><div id="orchard-host"></div></div>
+    <p class="orchard-note">
+      拖动旋转、滚轮缩放，点按星星查看单词。进度来自你本机的学习记录 —— 没有账号，也没有埋点。
     </p>
   </section>
 </main>
 
 <dialog id="dlg"><div class="dbody" id="dbody"></div></dialog>
 
-<footer>
-  数据授权 <a href="CONTENT_LICENSE.md">CC BY 4.0</a> · 词头/音标/释义/例句来自
-  <a href="https://github.com/kylebing/english-vocabulary">kylebing/english-vocabulary</a>（BSD-3-Clause）·
-  记忆法/话题/词频/插画为 CozyLingo 原创 · 复习调度用 <a href="docs/fsrs.md">FSRS</a>
+<footer class="site">
+  <div class="wrap">
+    <span>数据授权 <a href="CONTENT_LICENSE.md">CC BY 4.0</a> · 代码 <a href="LICENSE">MIT</a></span>
+    <span class="sep">·</span>
+    <span>词头/音标/释义/例句来自 <a href="https://github.com/kylebing/english-vocabulary">kylebing/english-vocabulary</a>（BSD-3-Clause）</span>
+    <span class="sep">·</span>
+    <span>记忆法、话题、词频、插画、语法题、灵果山渲染为 CozyLingo 原创</span>
+    <span class="sep">·</span>
+    <span>复习调度用 <a href="docs/fsrs.md">FSRS</a></span>
+  </div>
 </footer>
 
 <!-- fsrs.js 与服务端逐字相同，是 CommonJS 模块；用下面两行 shim 加载 -->

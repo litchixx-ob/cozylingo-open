@@ -12,6 +12,7 @@
  */
 
 import * as S from './store.js';
+import { icons } from './icons.js';
 
 const FSRS = window.module.exports;      // src/fsrs.js（服务端逐字相同的 CommonJS 模块）
 
@@ -30,15 +31,23 @@ let onDone = null;
 let wordsById = new Map();
 let session = { done: 0, again: 0 };
 
+/**
+ * 组今天这一组题。
+ * 先把词池按「练习范围」（词书 / 话题）筛过，再在里面挑到期的复习与新的词 ——
+ * 所以选一本词书就等于把这本词书整个纳入今天的练习，不需要一个词一个词加。
+ */
 export function buildQueue(words) {
   wordsById = new Map(words.map(w => [w.word, w]));
   const st = S.settings();
-  const due = S.dueList().slice(0, st.dailyReview);
+  const pool = S.scopeWords(words);
+  const poolSet = new Set(pool.map(w => w.word));
+
+  const due = S.dueList().filter(w => poolSet.has(w)).slice(0, st.dailyReview);
   const dueSet = new Set(due);
-  const fresh = S.newList(words, st.dailyNew).filter(w => !dueSet.has(w));
+  const fresh = S.newList(pool, st.dailyNew).filter(w => !dueSet.has(w));
   queue = [...due, ...fresh];
   idx = 0; revealed = false; session = { done: 0, again: 0 };
-  return { due: due.length, fresh: fresh.length, total: queue.length };
+  return { due: due.length, fresh: fresh.length, total: queue.length, scopeTotal: pool.length };
 }
 
 export function current() {
@@ -120,7 +129,7 @@ export function render() {
     const s = S.stats();
     host.innerHTML = `
       <div class="empty">
-        <div class="empty-ico">✓</div>
+        <div class="empty-ico">${icons.check()}</div>
         <h3>今天的任务练完了</h3>
         <p>本次完成 <b>${session.done}</b> 个词${session.again ? `，其中答错 <b>${session.again}</b> 个已排进下次复习` : ''}。</p>
         <p class="muted">累计已学 <b>${s.learned}</b> 词 · 已掌握 <b>${s.mastered}</b> 词 · 今天到期 <b>${s.due}</b> 词</p>
@@ -158,8 +167,8 @@ export function render() {
         <div class="fword">${esc(card.word)}</div>
         <div class="fipa">${esc(card.ipa_uk ? '英 ' + card.ipa_uk : '')}${card.ipa_uk && card.ipa_us ? ' · ' : ''}${esc(card.ipa_us ? '美 ' + card.ipa_us : '')}</div>
         <div class="frow">
-          <button class="btn tiny" data-speak="${esc(card.id)}" data-accent="uk">🔊 英</button>
-          <button class="btn tiny" data-speak="${esc(card.id)}" data-accent="us">🔊 美</button>
+          <button class="btn tiny" data-speak="${esc(card.id)}" data-accent="uk">${icons.speaker()}英</button>
+          <button class="btn tiny" data-speak="${esc(card.id)}" data-accent="us">${icons.speaker()}美</button>
           ${stage >= 2 ? `<span class="chip chip-s${stage}">${stage === 4 ? '已掌握' : stage === 3 ? '复习中' : '学习中'}</span>` : ''}
         </div>
       </div>

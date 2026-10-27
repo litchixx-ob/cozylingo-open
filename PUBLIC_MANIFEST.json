@@ -1,8 +1,8 @@
 {
  "name": "CozyLingo Open",
  "generated": "2026-10-27",
- "files": 25242,
- "bytes": 585373955,
+ "files": 25243,
+ "bytes": 585402332,
  "items": [
   {
    "path": ".github/ISSUE_TEMPLATE/config.yml",
@@ -46,13 +46,13 @@
   },
   {
    "path": "README.en.md",
-   "bytes": 6639,
-   "sha256": "6750e326164bfee510e5e70cbc3b394570cf93bc4ffc47fb4add1e230168639f"
+   "bytes": 6686,
+   "sha256": "d0ff997b1d786a4065c8c04396bd340e85c68bea2c0db9324dd84c764c04ad82"
   },
   {
    "path": "README.md",
-   "bytes": 7757,
-   "sha256": "7700da132693e0df99b7c68aa90fa047d3b04b4002eb353a0bf80f74c3918a75"
+   "bytes": 7781,
+   "sha256": "1452dde1c76d9a2b9106810252687ca6fab320e2a718dee489aa1d4bd8ddfc95"
   },
   {
    "path": "SECURITY.md",
@@ -150,7 +150,7 @@
    "sha256": "7fb12f61917bfc902c65b22285d9023fe97fa8df45b83989e36686744a8692ff"
   },
   {
-   "path": "docs/assets/app-star.png",
+   "path": "docs/assets/app-orchard.png",
    "bytes": 361648,
    "sha256": "f07595dccdc5d1eda3a0e270e88cb6169f6fb7a9e612b85b076a5dd7fb0d6e4d"
   },
@@ -186,18 +186,18 @@
   },
   {
    "path": "docs/dataset.md",
-   "bytes": 3575,
-   "sha256": "df6cd4e48a3fffc58a75e22c4262565a281cdda082fe58d61c10b1f0f2c985dc"
+   "bytes": 3578,
+   "sha256": "4cac5fb487c195e714f62a7019dc992f75df60c7fdb776758f21cdd751d62f4f"
   },
   {
    "path": "docs/fsrs.md",
-   "bytes": 5114,
-   "sha256": "c20ab79434d37993e3b251ecffbd29f62be8f2f73823e92a9351e657ecece5f8"
+   "bytes": 5117,
+   "sha256": "d1159d146e50b1bedd006d8c647a4d4ba4b7240593a60c2d6f026b445361720b"
   },
   {
    "path": "index.html",
-   "bytes": 2135,
-   "sha256": "dddd26d2db3c0dfd463fac5c281b8302410db190d5ff2408752520f09448d93c"
+   "bytes": 3964,
+   "sha256": "cdce1bc42aa4c99d6f10fe848f52e82a22d95f82ccbd0d5bd51d010cdb8cccc0"
   },
   {
    "path": "public/img/a.webp",
@@ -126151,8 +126151,8 @@
   },
   {
    "path": "scripts/build_orchard.py",
-   "bytes": 4555,
-   "sha256": "65db0ff3819a334834f500967223d9158060c97a2384d31d03e8f6a2a0b56315"
+   "bytes": 4558,
+   "sha256": "bf8c6def6106271e3742f6f8d2a4ccd778d65abff948a296a4f388a7a841fb50"
   },
   {
    "path": "scripts/check_dataset.py",
@@ -126171,28 +126171,33 @@
   },
   {
    "path": "src/app.css",
-   "bytes": 8228,
-   "sha256": "c93967d0b997ae0d21b3912179c214bc616bf32c99dfa643a3668ee5f47e9599"
+   "bytes": 24977,
+   "sha256": "3ad6ee5a9bb72052235841f2358fcfa397770e433e76c5526f799d7561df90db"
   },
   {
    "path": "src/app.js",
-   "bytes": 10740,
-   "sha256": "be57ac4119e05d1c961adad25720789dae0ccded45d96ea3774c0baaa1586515"
+   "bytes": 14671,
+   "sha256": "499cc7f5fedc5a5ddb6f76a9c708ad1246845e516c08ed14442ff43a3aed4829"
   },
   {
    "path": "src/cloze.css",
-   "bytes": 4447,
-   "sha256": "b217072b4a0b313597cf84a2c4f150f8de5b1a227962b9ad8532448a233b6a14"
+   "bytes": 6379,
+   "sha256": "988217ebd0988c29e09863be7c38995a39f53f3f2036fa052f9253774585e52f"
   },
   {
    "path": "src/cloze.js",
-   "bytes": 9758,
-   "sha256": "f68150b6477667a3f6c36cce6312548305634093920863784c1aba47802eed61"
+   "bytes": 10067,
+   "sha256": "7dc06b7047715bcf20a3dd45178b9dc59f6b2b1dd4aeeadfbad8b201b5071efb"
   },
   {
    "path": "src/fsrs.js",
    "bytes": 10869,
    "sha256": "7cd238af0cddc3fe03bce91363465bcb0fbc6ca43e08ae05086be9e7dca9b856"
+  },
+  {
+   "path": "src/icons.js",
+   "bytes": 2126,
+   "sha256": "21e7e768505402671e64644ac1fdb64d4a3ac00d1a3f8f2f7ea92c16eed965f2"
   },
   {
    "path": "src/orchard.css",
@@ -126201,18 +126206,18 @@
   },
   {
    "path": "src/orchard.js",
-   "bytes": 35614,
-   "sha256": "87161fb5fdc1da398f127362001fd08b242b2aa58c6530241eb9f2b7a8b3140f"
+   "bytes": 35617,
+   "sha256": "81429e0261058fc8acdf6a8b53467ac774a9849bdad3b7e96df67c922035b1ea"
   },
   {
    "path": "src/practice.js",
-   "bytes": 9923,
-   "sha256": "f33dc3de6909912ace9939917f80cb293fc47c1259ed990984083cb839dde669"
+   "bytes": 10401,
+   "sha256": "05faee4e9cf6bb63644c13d85591416cbdffbce722ebbac50cee2239f2a993cf"
   },
   {
    "path": "src/store.js",
-   "bytes": 4083,
-   "sha256": "287852453114563494cc174d9fcc2053db2cf9595eb94815eb565a66456f0e19"
+   "bytes": 5023,
+   "sha256": "1e138ada0f8177b9405a6c1b549f302aab06369c75110f072a074975752606f4"
   }
  ]
 }

@@ -11,6 +11,7 @@
  */
 
 import * as S from './store.js';
+import { icons } from './icons.js';
 
 const KEY = 'cozylingo-open.cloze.v1';
 const LEVELS = [
@@ -120,6 +121,11 @@ function render() {
   if (!els.body) return;
   const wrong = wrongCount();
   els.head.innerHTML = `
+    <div class="sec-head">
+      <p class="eyebrow">21 个语法点 · CEFR A1–C1 · 1,015 题</p>
+      <h2>语法精练</h2>
+      <p>读完题干选一个词，立刻判题并给出讲解。答错的题进本机错题本，可以只练错题。</p>
+    </div>
     <div class="pbar">
       <span><b>${session.done}</b> 本次已练</span>
       <span>正确率 <b>${session.done ? Math.round((session.correct / session.done) * 100) : 0}%</b></span>
@@ -146,7 +152,7 @@ function render() {
   if (!cur) {
     els.body.innerHTML = `
       <div class="pcard empty">
-        <p class="big">${queue.length ? '这一组练完了 🎉' : '没有符合条件的题'}</p>
+        <p class="big">${queue.length ? '这一组练完了' : '没有符合条件的题'}</p>
         <p class="muted">${queue.length
           ? `本次 ${session.done} 题，正确率 ${session.done ? Math.round((session.correct / session.done) * 100) : 0}%。换个语法点继续，或点「重新来一组」。`
           : '换个级别或语法点试试；「只练错题」在错题本为空时也会是空的。'}</p>
@@ -182,7 +188,7 @@ function render() {
       </div>
       ${(!zhMeta && cur.zh) ? `<p class="qzh">${esc(cur.zh)}</p>` : ''}
       <p class="qstem">${stem}</p>
-      <div class="qbar"><button class="ghost" id="c-speak">🔊 朗读</button></div>
+      <div class="qbar"><button class="ghost" id="c-speak">${icons.speaker()}朗读</button></div>
       <div class="opts">${opts}</div>
       ${!checked
         ? `<button class="primary wide" id="c-check"${picked ? '' : ' disabled'}>检查</button>`

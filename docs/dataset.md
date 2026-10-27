@@ -63,7 +63,7 @@
 
 ## `data/orchard.json`
 
-星图引擎用的紧凑格式（由 `scripts/build_orchard.py` 从 `words.json` 生成）：
+灵果山引擎用的紧凑格式（由 `scripts/build_orchard.py` 从 `words.json` 生成）：
 
 ```json
 {

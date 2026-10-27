@@ -1,10 +1,10 @@
 <div align="center">
 
-<a href="https://litchixx-ob.github.io/cozylingo-open/"><img src="docs/assets/banner.webp" alt="CozyLingo Open — 12,594 个英语词条 + 今日小课 + 星图" width="100%"></a>
+<a href="https://litchixx-ob.github.io/cozylingo-open/"><img src="docs/assets/banner.webp" alt="CozyLingo Open — 12,594 个英语词条 + 今日小课 + 灵果山" width="100%"></a>
 
 # CozyLingo Open · 蔻兹灵果开源词库
 
-**12,594 个英语词条 · 记忆法 · 插画 · 英美音标 · 例句 · FSRS 间隔复习 · 1,015 道语法题 · 星图进度**
+**12,594 个英语词条 · 记忆法 · 插画 · 英美音标 · 例句 · FSRS 间隔复习 · 1,015 道语法题 · 灵果山进度**
 
 [**在线试用 ↗**](https://litchixx-ob.github.io/cozylingo-open/)　/　[演示视频](docs/assets/demo.mp4)　/　[下载词库](data/)　/　[English](README.en.md)
 
@@ -29,7 +29,7 @@
 | **词库** | 搜词（中英文都可搜）、按词书 / 话题筛选、点开看释义·例句·记忆法 |
 | **今日小课** | 用 **FSRS** 排出今天该练的词，五档评分（不会 / 困难 / 良好 / 简单 / 已掌握），进度存本机 |
 | **语法精练** | **1,015 道完形填空**（21 个语法点 × A1–C1），选完立刻判题并给讲解；答错的进错题本，可只练错题 |
-| **星图** | 12,594 个词按「话题 = 方位、词频 = 海拔」铺成一座 WebGL 山，学过的词点亮、掌握的变金色 |
+| **灵果山** | 12,594 个词按「话题 = 方位、词频 = 海拔」铺成一座 WebGL 山，学过的词点亮、掌握的变金色 |
 
 **无账号、无后端、无埋点**：进度只存在你自己的 `localStorage` 里，可导出 / 导入。
 
@@ -68,9 +68,9 @@
 
 > 这些题是 **AI 生成**的（授权 CC BY 4.0），与线上站点使用的题库无关 —— 线上那批题干来自第三方站点，不随本仓库分发。
 
-### 星图：学过的词会亮
+### 灵果山：学过的词会亮
 
-<img src="docs/assets/app-star.png" alt="星图：12,594 个词按话题与词频铺成的 WebGL 山" width="100%">
+<img src="docs/assets/app-orchard.png" alt="灵果山：12,594 个词按话题与词频铺成的 WebGL 山" width="100%">
 
 拖动旋转、滚轮缩放、点按查看单词。进度来自本机学习记录，没有数据也能看形状。
 
@@ -143,7 +143,7 @@ python3 scripts/gen_audio.py --concurrency 6
 
 ```bash
 python3 scripts/build_cloze.py        # _gen/b*.json → data/cloze.json（题库合并 + 校验）
-python3 scripts/build_orchard.py      # words.json → orchard.json（星图用的紧凑格式）
+python3 scripts/build_orchard.py      # words.json → orchard.json（灵果山用的紧凑格式）
 python3 scripts/check_dataset.py      # 结构校验（CI 也跑这个）
 python3 scripts/build_manifest.py     # 重新生成 PUBLIC_MANIFEST.json
 ```
@@ -157,7 +157,7 @@ python3 scripts/build_manifest.py     # 重新生成 PUBLIC_MANIFEST.json
 | 词头 / 音标 / 释义 / 例句 | 来自 [kylebing/english-vocabulary](https://github.com/kylebing/english-vocabulary)（BSD-3-Clause，许可全文已附） |
 | 记忆法 / 话题 / 词频 / 插画 | 本项目原创 |
 | 语法题与讲解 | **本项目 AI 生成**，CC BY 4.0（非第三方题库） |
-| 星图着色器 | 渲染参数源自 [designfuchen/word-atlas](https://github.com/designfuchen/word-atlas)（MIT） |
+| 灵果山着色器 | 渲染参数源自 [designfuchen/word-atlas](https://github.com/designfuchen/word-atlas)（MIT） |
 | FSRS 引擎 | 本项目线上服务端同款实现，见 `src/fsrs.js` 头部说明 |
 
 **不包含**：各类考试真题、教材课文原文、商业词典的真人发音音频。

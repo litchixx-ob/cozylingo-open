@@ -1,10 +1,10 @@
 <div align="center">
 
-<a href="https://litchixx-ob.github.io/cozylingo-open/"><img src="docs/assets/banner.webp" alt="CozyLingo Open — 12,594 English word entries, daily lessons and a star map" width="100%"></a>
+<a href="https://litchixx-ob.github.io/cozylingo-open/"><img src="docs/assets/banner.webp" alt="CozyLingo Open — 12,594 English word entries, daily lessons and Lingguo Mountain" width="100%"></a>
 
 # CozyLingo Open
 
-**12,594 entries · mnemonics · illustrations · IPA · examples · FSRS review · 1,015 grammar questions · WebGL star map**
+**12,594 entries · mnemonics · illustrations · IPA · examples · FSRS review · 1,015 grammar questions · Lingguo Mountain (WebGL)**
 
 [**Try it online ↗**](https://litchixx-ob.github.io/cozylingo-open/)　/　[demo video](docs/assets/demo.mp4)　/　[download dataset](data/)　/　[中文](README.md)
 
@@ -31,7 +31,7 @@ Code and content are licensed separately (MIT / CC BY 4.0).
 | **Library** | Search (English or Chinese), filter by word book / topic, open an entry for senses, examples and mnemonic |
 | **Today's lesson** | **FSRS** picks what to review today; rate each word on five levels (forgot / hard / good / easy / mastered); progress stays on your device |
 | **Grammar drill** | **1,015 cloze questions** across 21 grammar topics (A1–C1); instant marking with an explanation. Wrong answers go to a local wrong-answer book |
-| **Star map** | All 12,594 words laid out as a WebGL mountain — topic = bearing, word frequency = altitude. Studied words light up, mastered ones turn gold |
+| **Lingguo Mountain** | All 12,594 words laid out as a WebGL mountain — topic = bearing, word frequency = altitude. Studied words light up, mastered ones turn gold |
 
 **No account, no backend, no tracking** — progress lives in your own `localStorage` and can be exported / imported.
 
@@ -62,9 +62,9 @@ Scheduling isn't random: due reviews come first (optionally wrong-answers-first)
 frequency rank; mastered words graduate out of the queue. Algorithm and parameters:
 **[docs/fsrs.md](docs/fsrs.md)**.
 
-### Star map
+### Lingguo Mountain
 
-<img src="docs/assets/app-star.png" alt="Star map: 12,594 words as a WebGL mountain shaped by topic and frequency" width="100%">
+<img src="docs/assets/app-orchard.png" alt="Lingguo Mountain: 12,594 words as a WebGL mountain shaped by topic and frequency" width="100%">
 
 Drag to rotate, scroll to zoom, click a star to see the word. Progress comes from your local study record.
 
@@ -128,7 +128,7 @@ python3 scripts/gen_audio.py --concurrency 6
 The dataset is compiled, not hand-written:
 
 ```bash
-python3 scripts/build_orchard.py      # words.json → orchard.json (compact format for the star map)
+python3 scripts/build_orchard.py      # words.json → orchard.json (compact format for Lingguo Mountain)
 python3 scripts/check_dataset.py      # structure validation (also runs in CI)
 python3 scripts/build_manifest.py     # regenerate PUBLIC_MANIFEST.json
 ```
@@ -142,7 +142,7 @@ python3 scripts/build_manifest.py     # regenerate PUBLIC_MANIFEST.json
 | Headwords / IPA / definitions / examples | from [kylebing/english-vocabulary](https://github.com/kylebing/english-vocabulary) (BSD-3-Clause, full text included) |
 | Mnemonics / topics / frequency / illustrations | original to this project |
 | Grammar questions & explanations | **AI-generated for this project**, CC BY 4.0 (not from any third-party question bank) |
-| Star map shaders | rendering parameters from [designfuchen/word-atlas](https://github.com/designfuchen/word-atlas) (MIT) |
+| Mountain shaders | rendering parameters from [designfuchen/word-atlas](https://github.com/designfuchen/word-atlas) (MIT) |
 | FSRS engine | same implementation as the production service, see header of `src/fsrs.js` |
 
 **Not included**: exam papers, textbook passages, or commercial dictionary audio recordings.

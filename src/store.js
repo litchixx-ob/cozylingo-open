@@ -18,6 +18,8 @@ const DEFAULT_SETTINGS = {
   wrongFirst: true,     // 错题优先
   showImage: true,      // 卡片上显示插画
   hideMeaning: true,    // 先隐藏释义，点「显示答案」再出
+  scopeLib: '',         // 练习范围 · 词书（'' = 不限）
+  scopeTopic: '',       // 练习范围 · 话题（'' = 不限）
 };
 
 let _prog = null;
@@ -35,6 +37,28 @@ export function saveSettings(patch) {
   _set = { ...settings(), ...patch };
   localStorage.setItem(SET_KEY, JSON.stringify(_set));
   return _set;
+}
+
+/** 一个词是否落在当前练习范围内 */
+export function inScope(w, st = settings()) {
+  if (st.scopeLib && !(w.libs || []).includes(st.scopeLib)) return false;
+  if (st.scopeTopic && w.topic !== st.scopeTopic) return false;
+  return true;
+}
+
+/** 按当前范围筛出词池 */
+export function scopeWords(words) {
+  const st = settings();
+  if (!st.scopeLib && !st.scopeTopic) return words;
+  return words.filter(w => inScope(w, st));
+}
+
+/** 范围的中文描述，用于界面上显示「正在练什么」 */
+export function scopeLabel() {
+  const st = settings();
+  const a = st.scopeLib ? `《${st.scopeLib}》` : '';
+  const b = st.scopeTopic ? `「${st.scopeTopic}」` : '';
+  return a && b ? `${a} 的 ${b}` : (a || b || '全部词库');
 }
 
 export function progress() {
@@ -100,7 +124,7 @@ export function dueList(now = new Date()) {
   return out.map(x => x.word);
 }
 
-/** 尚未学过的新词（按词频序号，最常用的先来） */
+/** 尚未学过的新词（按词频序号，最常用的先来）。words 应由调用方按练习范围先筛过 */
 export function newList(words, limit = Infinity) {
   const p = progress();
   return words

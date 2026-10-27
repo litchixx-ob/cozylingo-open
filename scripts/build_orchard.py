@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-把 data/words.json 转成星图引擎要的紧凑格式 data/orchard.json。
+把 data/words.json 转成灵果山引擎要的紧凑格式 data/orchard.json。
 
 格式：
   {
