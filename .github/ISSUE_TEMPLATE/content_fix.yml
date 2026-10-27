@@ -1,0 +1,33 @@
+name: 词条纠错
+description: 释义 / 音标 / 例句 / 记忆法 有错
+title: "[词条] "
+labels: ["content"]
+body:
+  - type: input
+    id: word
+    attributes:
+      label: 词条 id
+      description: 就是单词本身，例如 abandon
+      placeholder: abandon
+    validations:
+      required: true
+  - type: textarea
+    id: current
+    attributes:
+      label: 现状
+      description: 目前是什么
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 建议改成
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: 依据
+      description: 权威词典链接、教材页码等（有就填，能大幅提高采纳速度）
+    validations:
+      required: false

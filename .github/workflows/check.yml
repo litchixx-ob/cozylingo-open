@@ -1,0 +1,19 @@
+name: check
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  dataset:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: 校验数据集结构
+        run: python3 scripts/check_dataset.py
+      - name: 校验 PUBLIC_MANIFEST 与文件一致
+        run: python3 scripts/verify_manifest.py

@@ -1,0 +1,23 @@
+# 依赖与构建产物
+node_modules/
+dist/
+.next/
+out/
+
+# 本地缓存与工具（导出脚本、源数据不随仓库分发）
+.cache/
+.local/
+output/
+*.zip
+
+# 环境与凭证
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# 系统
+.DS_Store
+Thumbs.db
+*.tsbuildinfo
