@@ -1,8 +1,8 @@
 {
  "name": "CozyLingo Open",
  "generated": "2026-10-27",
- "files": 25209,
- "bytes": 571059266,
+ "files": 25217,
+ "bytes": 584158237,
  "items": [
   {
    "path": ".github/ISSUE_TEMPLATE/config.yml",
@@ -46,13 +46,13 @@
   },
   {
    "path": "README.en.md",
-   "bytes": 1699,
-   "sha256": "5b7294b4ed7a32782794538283889ed916ea23015e24a749ebb0331a4afefb38"
+   "bytes": 3896,
+   "sha256": "9eb7a9ebf174d666bcad9576ad0a6ad70bdb20c5d34011771422a3c00bc1e436"
   },
   {
    "path": "README.md",
-   "bytes": 1710,
-   "sha256": "02c933c9824c2d3f44219e733adca7508f81a8a912492cf0f92d062c5b0b313a"
+   "bytes": 4280,
+   "sha256": "99abad2d9af0aed360b5b3f16bacfcb811011de625e03855b9d86c0168bff423"
   },
   {
    "path": "SECURITY.md",
@@ -83,6 +83,46 @@
    "path": "data/words.json",
    "bytes": 12593855,
    "sha256": "1a6d90fee5c82f2b62f1e8a234e12148b2d8b2bf0ae91231ead982e3b8d35e3a"
+  },
+  {
+   "path": "docs/assets/banner.webp",
+   "bytes": 107732,
+   "sha256": "323736f0c6ebdee4737ee600408917e5ed239c9d24b32784450007a660e03fa2"
+  },
+  {
+   "path": "docs/assets/demo-preview.webp",
+   "bytes": 52012,
+   "sha256": "69e90d2e605237c443d6c2f861fb3e169e28aac2d0f633ebbf6f0d3c30f9eb5c"
+  },
+  {
+   "path": "docs/assets/demo.gif",
+   "bytes": 3223275,
+   "sha256": "d1e0a98d80d87bc217333cba77400daa34d82db038e5de6c182ebfdeb64cc368"
+  },
+  {
+   "path": "docs/assets/demo.mp4",
+   "bytes": 7825198,
+   "sha256": "909a0bad1b046fa7a1fa49222fcd8f924519461d81d4c14329cbaea1b8f78995"
+  },
+  {
+   "path": "docs/assets/detail-desktop.png",
+   "bytes": 572366,
+   "sha256": "b53ba7bb1ccd984d1551a68dbfc7ad66125f66b92cb8d81077ca4fae96743362"
+  },
+  {
+   "path": "docs/assets/detail-mobile.png",
+   "bytes": 313471,
+   "sha256": "50e27e7e3b51bb2a7c19f38b37978a728919a5860ff141f0613a1125cda1aafd"
+  },
+  {
+   "path": "docs/assets/list-desktop.png",
+   "bytes": 655897,
+   "sha256": "08f093fd5a754543103b540a5bcc180702e79dc436849d260906d8ca780df7e8"
+  },
+  {
+   "path": "docs/assets/list-mobile.png",
+   "bytes": 344253,
+   "sha256": "d3f98577783b8ca62c5e14891e8da42d6a135d5b8363c02885532c329d05fe79"
   },
   {
    "path": "docs/dataset.md",
