@@ -2,7 +2,7 @@
  "name": "CozyLingo Open",
  "generated": "2026-10-27",
  "files": 25243,
- "bytes": 585402332,
+ "bytes": 581668723,
  "items": [
   {
    "path": ".github/ISSUE_TEMPLATE/config.yml",
@@ -136,18 +136,18 @@
   },
   {
    "path": "docs/assets/app-browse-mobile.png",
-   "bytes": 312825,
-   "sha256": "50042d6138e73893c57a0ed7ccd4f004b42d52b2c808b505b7930dc7828e9173"
+   "bytes": 210268,
+   "sha256": "6065e967ae52552fdf49df802895ea6e31903b64124c23b18a03b61d853a4dbb"
   },
   {
    "path": "docs/assets/app-browse.png",
-   "bytes": 651860,
-   "sha256": "685ca66b70de4d3f0218fe6a8da3db40a53d6427af598210b7e8cb8a9298a14b"
+   "bytes": 548792,
+   "sha256": "3f5058242a78ec9b47b22c81683bfc4dba50d5dc239e5b9c042aa56edb8e9205"
   },
   {
    "path": "docs/assets/app-cloze-answer.png",
-   "bytes": 130044,
-   "sha256": "7fb12f61917bfc902c65b22285d9023fe97fa8df45b83989e36686744a8692ff"
+   "bytes": 169477,
+   "sha256": "aea5d2b0d1436a51c293e926cf3495d40ec0b226b2aa8ef6a5e12e953d234d65"
   },
   {
    "path": "docs/assets/app-orchard.png",
@@ -156,13 +156,13 @@
   },
   {
    "path": "docs/assets/app-today-mobile.png",
-   "bytes": 118743,
-   "sha256": "35a97eb89a60fb05c8a45b4ee6c7dc303ab37840991c66c86e2e8e456b60303e"
+   "bytes": 173730,
+   "sha256": "8c14d193eb4c0d4c17bc9dfe4823fb7bc72d0200a9a48fccbc95f41a0cb39c56"
   },
   {
    "path": "docs/assets/app-today.png",
-   "bytes": 258818,
-   "sha256": "de244d8f6ea544f6ca26bcf9bc2cd3c906abd9fe25b9eca75e6b96032290b1e3"
+   "bytes": 234086,
+   "sha256": "226ab7c186c3bedc00d1b6d87a1476f2df3ec15500ed4877f9845b7e05664133"
   },
   {
    "path": "docs/assets/banner.webp",
@@ -171,18 +171,18 @@
   },
   {
    "path": "docs/assets/demo-preview.webp",
-   "bytes": 50374,
-   "sha256": "2a1ea513dfcfd0a69e3a92f3cc392616d4da9b766f5cc4d3b831f96b59468c4a"
+   "bytes": 49826,
+   "sha256": "a4edcde228e64eed6defced7e40ceda18ef26dbd3ad01456710fde78b1f75943"
   },
   {
    "path": "docs/assets/demo.gif",
-   "bytes": 4348928,
-   "sha256": "365ac4b04dd13ff7e85f7dfbb99d0ec2eb1839f880b92ebed6cceeea8b8b0922"
+   "bytes": 2458870,
+   "sha256": "10ae3768b4eded73a1de8b08a33ac3a10b3a54138bfc6c64dc9fb585d27ac109"
   },
   {
    "path": "docs/assets/demo.mp4",
-   "bytes": 7025546,
-   "sha256": "f4e1c81544f8173da83d27777ede928cb47bd95b101f6a2602ba47af17217b28"
+   "bytes": 5318480,
+   "sha256": "af3c23bcc2f6defd7026ec2ab301dec8558b20bb713da0dd6c37ded4ea45456c"
   },
   {
    "path": "docs/dataset.md",
