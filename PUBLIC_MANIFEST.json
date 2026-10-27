@@ -1,8 +1,8 @@
 {
  "name": "CozyLingo Open",
  "generated": "2026-10-27",
- "files": 25230,
- "bytes": 585227711,
+ "files": 25242,
+ "bytes": 585373955,
  "items": [
   {
    "path": ".github/ISSUE_TEMPLATE/config.yml",
@@ -46,13 +46,13 @@
   },
   {
    "path": "README.en.md",
-   "bytes": 6205,
-   "sha256": "8e37e12bf30644a2a87ed93841739f793afe70666070b39c45d0fec285819125"
+   "bytes": 6639,
+   "sha256": "6750e326164bfee510e5e70cbc3b394570cf93bc4ffc47fb4add1e230168639f"
   },
   {
    "path": "README.md",
-   "bytes": 6659,
-   "sha256": "043979b2350c4c8c6637fc82b8e25146f449c7de6e57e5c57468ad51cee8c44c"
+   "bytes": 7757,
+   "sha256": "7700da132693e0df99b7c68aa90fa047d3b04b4002eb353a0bf80f74c3918a75"
   },
   {
    "path": "SECURITY.md",
@@ -68,6 +68,46 @@
    "path": "data/bg_night.webp",
    "bytes": 30988,
    "sha256": "6d0277cb1d275681cd73f30759b80f652145f3c64846ce2170b2ea45fc489bf4"
+  },
+  {
+   "path": "data/cloze-src/b1-tenses.json",
+   "bytes": 33199,
+   "sha256": "98b14f9542ffa01beea036be5b23b997cf20cbced331e62f524713cfbdb5d165"
+  },
+  {
+   "path": "data/cloze-src/b2-mixed-sentence.json",
+   "bytes": 41237,
+   "sha256": "eae8100b2e252390ab0a7f826dc0780936452800b9bab7f2b250c32f7c67d1dc"
+  },
+  {
+   "path": "data/cloze-src/b3-vocab-pronouns.json",
+   "bytes": 34446,
+   "sha256": "60a20034701290471126c2ec8f5290603a2ab401e11cbe8df235ff8ed82b6e5a"
+  },
+  {
+   "path": "data/cloze-src/b4-cond-prep-gerund.json",
+   "bytes": 40571,
+   "sha256": "ddd9af5ecf5b60be0736148ca5d0244fa9a2a6c2d1309f57d329090bd401ba56"
+  },
+  {
+   "path": "data/cloze-src/b5-modal-q-passive.json",
+   "bytes": 40250,
+   "sha256": "274a70747d376b39a9f17462b9e7749789792ba2dbed9379f833a43003ba753b"
+  },
+  {
+   "path": "data/cloze-src/b6-reported-adj-noun-adv.json",
+   "bytes": 42196,
+   "sha256": "5a92d7e61a9467eb07f6a9f8dc78b163859a7a82e52939d73668d95fa5bb6e99"
+  },
+  {
+   "path": "data/cloze-src/b7-articles-compar-disc-conj-rel-reg.json",
+   "bytes": 47850,
+   "sha256": "5d8f5d398ff4430fac16c1d1e0aca53e99547f529b6f0e36031fe172b95af058"
+  },
+  {
+   "path": "data/cloze.json",
+   "bytes": 294830,
+   "sha256": "45f0727c802795c29f4d1475b0e85d3092dcf1e43399f0c1cc846116e23b1702"
   },
   {
    "path": "data/image_tasks.txt",
@@ -101,13 +141,18 @@
   },
   {
    "path": "docs/assets/app-browse.png",
-   "bytes": 667729,
-   "sha256": "23bba9a29d926489109fbc76d66b297178be58f35c5fcb20b329b891531095bd"
+   "bytes": 651860,
+   "sha256": "685ca66b70de4d3f0218fe6a8da3db40a53d6427af598210b7e8cb8a9298a14b"
+  },
+  {
+   "path": "docs/assets/app-cloze-answer.png",
+   "bytes": 130044,
+   "sha256": "7fb12f61917bfc902c65b22285d9023fe97fa8df45b83989e36686744a8692ff"
   },
   {
    "path": "docs/assets/app-star.png",
-   "bytes": 926354,
-   "sha256": "5f7e7f2135f53cfb0f4ecfa88eb53da1bf6296ec825bb1269e0e8d10e478e39a"
+   "bytes": 361648,
+   "sha256": "f07595dccdc5d1eda3a0e270e88cb6169f6fb7a9e612b85b076a5dd7fb0d6e4d"
   },
   {
    "path": "docs/assets/app-today-mobile.png",
@@ -141,8 +186,8 @@
   },
   {
    "path": "docs/dataset.md",
-   "bytes": 2526,
-   "sha256": "a66bc630aacb4758d506e62fded3a375105acb40dc704aba6ecc90c29da6c861"
+   "bytes": 3575,
+   "sha256": "df6cd4e48a3fffc58a75e22c4262565a281cdda082fe58d61c10b1f0f2c985dc"
   },
   {
    "path": "docs/fsrs.md",
@@ -151,8 +196,8 @@
   },
   {
    "path": "index.html",
-   "bytes": 1960,
-   "sha256": "977a329dbd1352ebf4efda54c1144e2a6c002ba45a0477b44fcf0d37b23436a4"
+   "bytes": 2135,
+   "sha256": "dddd26d2db3c0dfd463fac5c281b8302410db190d5ff2408752520f09448d93c"
   },
   {
    "path": "public/img/a.webp",
@@ -126095,6 +126140,11 @@
    "sha256": "55e6e801a4459477421380fb5e11c486dc9603e45488bfaf065f4dce12eacfe1"
   },
   {
+   "path": "scripts/build_cloze.py",
+   "bytes": 4721,
+   "sha256": "86a2e1396e6d6653f4f5b15041fe4910ee30056208e936f1cc3342c6d53a9d75"
+  },
+  {
    "path": "scripts/build_manifest.py",
    "bytes": 1398,
    "sha256": "8e41960fa5371fa9c6df47238706b1ba6bcbc27c701db01aa65ec10a71ac330d"
@@ -126126,8 +126176,18 @@
   },
   {
    "path": "src/app.js",
-   "bytes": 10226,
-   "sha256": "1f919bcd34711dd3e662f890134f0bfd93ce145ecd667919540f490850645165"
+   "bytes": 10740,
+   "sha256": "be57ac4119e05d1c961adad25720789dae0ccded45d96ea3774c0baaa1586515"
+  },
+  {
+   "path": "src/cloze.css",
+   "bytes": 4447,
+   "sha256": "b217072b4a0b313597cf84a2c4f150f8de5b1a227962b9ad8532448a233b6a14"
+  },
+  {
+   "path": "src/cloze.js",
+   "bytes": 9758,
+   "sha256": "f68150b6477667a3f6c36cce6312548305634093920863784c1aba47802eed61"
   },
   {
    "path": "src/fsrs.js",

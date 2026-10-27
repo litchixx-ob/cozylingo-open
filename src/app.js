@@ -3,10 +3,12 @@
  *   浏览：搜词、按词书/话题筛选、看词条详情
  *   今日小课：FSRS 排课 + 卡片练习（进度存 localStorage）
  *   星图：12,594 个词按话题/词频铺成的 WebGL 星图，学过的词会亮
+ *   语法精练：完形填空（AI 生成题库，21 个语法点 × A1–C1）
  */
 
 import * as S from './store.js';
 import * as P from './practice.js';
+import * as C from './cloze.js';
 
 const PAGE = 60;
 let all = [], view = [], shown = 0;
@@ -45,6 +47,7 @@ function buildTabs() {
   $('#tabs').innerHTML = [
     ['browse', '词库'],
     ['today', '今日小课'],
+    ['cloze', '语法精练'],
     ['star', '星图'],
   ].map(([k, label]) => `<button class="tab" data-tab="${k}">${label}<span class="badge" data-badge="${k}"></span></button>`).join('');
   $('#tabs').querySelectorAll('.tab').forEach(b => b.onclick = () => { location.hash = '#' + b.dataset.tab; });
@@ -59,14 +62,16 @@ export function refreshBadges() {
 
 function route() {
   tab = (location.hash || '#browse').slice(1);
-  if (!['browse', 'today', 'star'].includes(tab)) tab = 'browse';
+  if (!['browse', 'today', 'cloze', 'star'].includes(tab)) tab = 'browse';
   document.querySelectorAll('.tab').forEach(b => b.classList.toggle('on', b.dataset.tab === tab));
   $('#view-browse').hidden = tab !== 'browse';
   $('#view-today').hidden = tab !== 'today';
+  $('#view-cloze').hidden = tab !== 'cloze';
   $('#view-star').hidden = tab !== 'star';
   $('#filters').hidden = tab !== 'browse';
 
   if (tab === 'today') mountToday();
+  if (tab === 'cloze') C.mountCloze($('#cloze-head'), $('#cloze-body'));
   if (tab === 'star') mountStar();
 }
 addEventListener('hashchange', route);
@@ -201,6 +206,9 @@ async function mountStar() {
     },
   });
 }
+
+/* ───────────────────────── 语法精练 ───────────────────────── */
+/* 逻辑全在 src/cloze.js，这里只把两个容器交给它 */
 
 /* ───────────────────────── 事件绑定 ───────────────────────── */
 $('#q').addEventListener('input', debounce(applyBrowse, 200));

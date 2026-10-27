@@ -4,7 +4,7 @@
 
 # CozyLingo Open · 蔻兹灵果开源词库
 
-**12,594 个英语词条 · 记忆法 · 插画 · 英美音标 · 例句 · FSRS 间隔复习 · 星图进度**
+**12,594 个英语词条 · 记忆法 · 插画 · 英美音标 · 例句 · FSRS 间隔复习 · 1,015 道语法题 · 星图进度**
 
 [**在线试用 ↗**](https://litchixx-ob.github.io/cozylingo-open/)　/　[演示视频](docs/assets/demo.mp4)　/　[下载词库](data/)　/　[English](README.en.md)
 
@@ -28,6 +28,7 @@
 | :--- | :--- |
 | **词库** | 搜词（中英文都可搜）、按词书 / 话题筛选、点开看释义·例句·记忆法 |
 | **今日小课** | 用 **FSRS** 排出今天该练的词，五档评分（不会 / 困难 / 良好 / 简单 / 已掌握），进度存本机 |
+| **语法精练** | **1,015 道完形填空**（21 个语法点 × A1–C1），选完立刻判题并给讲解；答错的进错题本，可只练错题 |
 | **星图** | 12,594 个词按「话题 = 方位、词频 = 海拔」铺成一座 WebGL 山，学过的词点亮、掌握的变金色 |
 
 **无账号、无后端、无埋点**：进度只存在你自己的 `localStorage` 里，可导出 / 导入。
@@ -43,6 +44,7 @@
 | 插画 | 12,594 张 512px + 12,594 张 256px（WebP，已随仓库分发） |
 | 发音 | 英美双音，Edge TTS 预生成（走 [Releases](#发音音频) 下载，不进 git） |
 | 话题 / 词频 / 考试标签 | 每条附带（25 个话题） |
+| **语法题（完形填空）** | **1,015 道**，21 个语法点 × A1–C1，**AI 生成**、每题带讲解与中文释义 |
 
 ## 预览
 
@@ -56,6 +58,15 @@
 
 排课不是随机抽词：先排到期的复习（可开「错题优先」），再按词频补新词，已掌握的词毕业出队。
 算法细节与参数见 **[docs/fsrs.md](docs/fsrs.md)**。
+
+### 语法精练：1,015 道完形填空
+
+<img src="docs/assets/app-cloze-answer.png" alt="语法精练：题干挖空、四选一、判题、讲解" width="100%">
+
+题库覆盖 21 个语法点（时态 110 / 综合 90 / 句子结构 60 / 词汇辨析 70 / 代词 55 / 条件句 55 / 介词 55 / …），
+按 CEFR 分级（A1 100 / A2 210 / B1 320 / B2 239 / C1 146）。答错的题进本机错题本，可切换「只练错题」。
+
+> 这些题是 **AI 生成**的（授权 CC BY 4.0），与线上站点使用的题库无关 —— 线上那批题干来自第三方站点，不随本仓库分发。
 
 ### 星图：学过的词会亮
 
@@ -131,6 +142,7 @@ python3 scripts/gen_audio.py --concurrency 6
 数据不是手写的，是从上游词表编译出来的。想换成你自己的词表：
 
 ```bash
+python3 scripts/build_cloze.py        # _gen/b*.json → data/cloze.json（题库合并 + 校验）
 python3 scripts/build_orchard.py      # words.json → orchard.json（星图用的紧凑格式）
 python3 scripts/check_dataset.py      # 结构校验（CI 也跑这个）
 python3 scripts/build_manifest.py     # 重新生成 PUBLIC_MANIFEST.json
@@ -144,6 +156,7 @@ python3 scripts/build_manifest.py     # 重新生成 PUBLIC_MANIFEST.json
 | 词库内容、插画 | [CC BY 4.0](CONTENT_LICENSE.md) |
 | 词头 / 音标 / 释义 / 例句 | 来自 [kylebing/english-vocabulary](https://github.com/kylebing/english-vocabulary)（BSD-3-Clause，许可全文已附） |
 | 记忆法 / 话题 / 词频 / 插画 | 本项目原创 |
+| 语法题与讲解 | **本项目 AI 生成**，CC BY 4.0（非第三方题库） |
 | 星图着色器 | 渲染参数源自 [designfuchen/word-atlas](https://github.com/designfuchen/word-atlas)（MIT） |
 | FSRS 引擎 | 本项目线上服务端同款实现，见 `src/fsrs.js` 头部说明 |
 

@@ -4,7 +4,7 @@
 
 # CozyLingo Open
 
-**12,594 English word entries · mnemonics · illustrations · UK/US IPA · examples · FSRS review · WebGL star map**
+**12,594 entries · mnemonics · illustrations · IPA · examples · FSRS review · 1,015 grammar questions · WebGL star map**
 
 [**Try it online ↗**](https://litchixx-ob.github.io/cozylingo-open/)　/　[demo video](docs/assets/demo.mp4)　/　[download dataset](data/)　/　[中文](README.md)
 
@@ -30,6 +30,7 @@ Code and content are licensed separately (MIT / CC BY 4.0).
 | :--- | :--- |
 | **Library** | Search (English or Chinese), filter by word book / topic, open an entry for senses, examples and mnemonic |
 | **Today's lesson** | **FSRS** picks what to review today; rate each word on five levels (forgot / hard / good / easy / mastered); progress stays on your device |
+| **Grammar drill** | **1,015 cloze questions** across 21 grammar topics (A1–C1); instant marking with an explanation. Wrong answers go to a local wrong-answer book |
 | **Star map** | All 12,594 words laid out as a WebGL mountain — topic = bearing, word frequency = altitude. Studied words light up, mastered ones turn gold |
 
 **No account, no backend, no tracking** — progress lives in your own `localStorage` and can be exported / imported.
@@ -45,6 +46,7 @@ Code and content are licensed separately (MIT / CC BY 4.0).
 | Illustrations | 12,594 × 512px + 12,594 × 256px WebP (shipped in the repo) |
 | Audio | UK + US, pre-generated with Edge TTS (see [Releases](#audio), not in git) |
 | Topic / frequency / exam tags | per entry (25 topics) |
+| **Grammar (cloze)** | **1,015 questions**, 21 topics × A1–C1, **AI-generated**, each with an explanation and a Chinese gloss |
 
 ## Preview
 
@@ -139,6 +141,7 @@ python3 scripts/build_manifest.py     # regenerate PUBLIC_MANIFEST.json
 | Dataset, illustrations | [CC BY 4.0](CONTENT_LICENSE.md) |
 | Headwords / IPA / definitions / examples | from [kylebing/english-vocabulary](https://github.com/kylebing/english-vocabulary) (BSD-3-Clause, full text included) |
 | Mnemonics / topics / frequency / illustrations | original to this project |
+| Grammar questions & explanations | **AI-generated for this project**, CC BY 4.0 (not from any third-party question bank) |
 | Star map shaders | rendering parameters from [designfuchen/word-atlas](https://github.com/designfuchen/word-atlas) (MIT) |
 | FSRS engine | same implementation as the production service, see header of `src/fsrs.js` |
 

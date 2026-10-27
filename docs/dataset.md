@@ -37,6 +37,30 @@
 
 每个词书包含的 `id` 列表。
 
+## `data/cloze.json`
+
+语法精练题库，**由 AI 生成**（`scripts/build_cloze.py` 从 `_gen/b*.json` 合并 + 校验）：
+
+```json
+{
+  "name": "cozylingo-open-cloze", "license": "CC BY 4.0",
+  "source": "AI 生成（CozyLingo 自研），非第三方题库",
+  "topics": ["tenses", "mixed", "..."], "levels": ["a1","a2","b1","b2","c1"],
+  "count": 1015, "byTopic": {...}, "byLevel": {...},
+  "questions": [
+    { "id": "tenses-001", "topic": "tenses", "level": "a1",
+      "content": "She ___ to school every day.",
+      "options": ["go", "goes", "going", "gone"], "answer": "goes",
+      "explanation": "主语 she 是第三人称单数，一般现在时动词要加 -es。",
+      "zh": "她每天去上学。" }
+  ]
+}
+```
+
+- `content` 里**恰好一个空位**（连续下划线），渲染时空位显示为可填的横线
+- `answer` 必在 `options` 内；`options` 恰好 4 个且互不相同（`build_cloze.py` 强校验）
+- `explanation` 是判题后展示的讲解，`zh` 是整句中文（题干式题目的 `zh` 可能为空）
+
 ## `data/orchard.json`
 
 星图引擎用的紧凑格式（由 `scripts/build_orchard.py` 从 `words.json` 生成）：

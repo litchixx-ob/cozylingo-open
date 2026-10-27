@@ -1,0 +1,95 @@
+/* 语法精练 —— 样式（全部作用域在 #view-cloze 下，不与词库/小课/星图冲突） */
+
+#view-cloze { max-width: 760px; margin: 0 auto; }
+
+/* 顶部统计 + 筛选 */
+#view-cloze .pbar {
+  display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: center;
+  padding: 10px 0 14px; font-size: 13px; color: var(--soft);
+}
+#view-cloze .pbar b { color: var(--ink); font-size: 16px; }
+#view-cloze .pset {
+  display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; justify-content: center;
+  padding: 10px 12px; margin-bottom: 16px;
+  background: var(--paper); border: 1px solid var(--line); border-radius: 12px;
+}
+#view-cloze .pset label { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--soft); }
+#view-cloze .pset select {
+  padding: 5px 8px; font-size: 13px; color: var(--ink);
+  background: #fff; border: 1px solid var(--line); border-radius: 8px;
+}
+#view-cloze .pset .chk { cursor: pointer; }
+#view-cloze .ghost {
+  padding: 6px 12px; font-size: 12.5px; color: var(--soft); cursor: pointer;
+  background: transparent; border: 1px solid var(--line); border-radius: 8px;
+}
+#view-cloze .ghost:hover { color: var(--ink); border-color: var(--soft); }
+
+/* 题卡 */
+#view-cloze .pcard {
+  padding: 22px 20px 20px; background: var(--paper);
+  border: 1px solid var(--line); border-radius: 16px;
+}
+#view-cloze .pcard.empty { text-align: center; padding: 40px 20px; }
+#view-cloze .big { font-size: 19px; font-weight: 600; color: var(--ink); margin: 0 0 8px; }
+#view-cloze .muted { color: var(--soft); font-size: 13.5px; }
+
+#view-cloze .qmeta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 14px; }
+#view-cloze .tag {
+  padding: 3px 9px; font-size: 11.5px; color: var(--fruit);
+  background: rgba(232, 93, 76, .10); border-radius: 999px;
+}
+#view-cloze .tag.lv { color: var(--leaf); background: rgba(91, 140, 90, .12); }
+#view-cloze .qidx { margin-left: auto; font-size: 12px; color: var(--soft); }
+
+#view-cloze .qzh { margin: 0 0 12px; font-size: 14.5px; color: var(--soft); text-align: center; }
+#view-cloze .qstem {
+  margin: 0 0 6px; font-size: 21px; line-height: 1.85; color: var(--ink);
+  text-align: center; word-break: break-word;
+}
+#view-cloze .blank {
+  display: inline-block; min-width: 3.4rem; margin: 0 4px; padding-bottom: 1px;
+  color: var(--fruit); border-bottom: 3px solid var(--fruit); text-align: center;
+}
+#view-cloze .qbar { display: flex; justify-content: center; margin: 12px 0 18px; }
+
+/* 选项 */
+#view-cloze .opts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+@media (min-width: 560px) { #view-cloze .opts { grid-template-columns: repeat(4, 1fr); } }
+#view-cloze .opt {
+  padding: 13px 10px; font-size: 15px; font-weight: 500; color: var(--ink); cursor: pointer;
+  background: var(--paper); border: 2px solid var(--line); border-radius: 12px;
+  transition: border-color .12s, background .12s;
+}
+#view-cloze .opt:hover:not(:disabled) { border-color: rgba(232, 93, 76, .5); background: rgba(232, 93, 76, .07); }
+#view-cloze .opt.mine {
+  color: #b83f30; background: rgba(232, 93, 76, .10);
+  border-color: var(--fruit); box-shadow: 0 0 0 2px rgba(232, 93, 76, .22);
+}
+#view-cloze .opt.right {
+  color: #3d6b3c; background: rgba(91, 140, 90, .15);
+  border-color: var(--leaf); box-shadow: 0 0 0 2px rgba(91, 140, 90, .2);
+}
+#view-cloze .opt.dim { color: var(--soft); }
+#view-cloze .opt:disabled { cursor: default; }
+
+/* 主按钮 */
+#view-cloze .primary {
+  padding: 10px 22px; font-size: 14.5px; font-weight: 600; color: #fff; cursor: pointer;
+  background: var(--fruit); border: none; border-radius: 12px;
+}
+#view-cloze .primary:hover { background: #d24d3d; }
+#view-cloze .primary:disabled { opacity: .4; cursor: not-allowed; }
+#view-cloze .primary.wide { display: block; width: 100%; margin-top: 18px; padding: 12px; }
+
+/* 判题结果 */
+#view-cloze .result { margin-top: 18px; }
+#view-cloze .verdict { margin: 0 0 10px; font-size: 15.5px; font-weight: 600; text-align: center; }
+#view-cloze .verdict.ok { color: var(--leaf); }
+#view-cloze .verdict.no { color: var(--soft); }
+#view-cloze .verdict.no b { color: var(--leaf); }
+#view-cloze .expl {
+  margin: 0; padding: 12px 14px; font-size: 14px; line-height: 1.75; color: var(--ink);
+  background: rgba(91, 140, 90, .08); border-radius: 10px;
+}
+#view-cloze .expl.muted { margin-top: 10px; color: var(--soft); background: rgba(0, 0, 0, .025); font-size: 13px; }
