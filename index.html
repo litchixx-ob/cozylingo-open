@@ -3,150 +3,52 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CozyLingo Open · 词库浏览器</title>
-<style>
-  :root{--bg:#f7f1e8;--paper:#fffdf9;--ink:#1c1410;--soft:#8a7b6e;--line:#e7ded1;--fruit:#e85d4c;--leaf:#5b8c5a}
-  *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.7 -apple-system,"PingFang SC","Microsoft YaHei",system-ui,sans-serif}
-  header{padding:28px 20px 18px;text-align:center}
-  h1{margin:0 0 6px;font-size:22px}
-  .sub{color:var(--soft);font-size:13px}
-  .bar{position:sticky;top:0;z-index:5;background:rgba(247,241,232,.92);backdrop-filter:blur(8px);
-       border-bottom:1px solid var(--line);padding:12px 20px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-  input,select{font:inherit;padding:8px 12px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink)}
-  input{flex:1;min-width:160px}
-  .count{color:var(--soft);font-size:13px;margin-left:auto}
-  main{max-width:900px;margin:0 auto;padding:18px 20px 60px}
-  .grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
-  .card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:14px;cursor:pointer;
-        transition:.15s;overflow:hidden}
-  .card:hover{transform:translateY(-2px);border-color:#e85d4c66;box-shadow:0 6px 18px #1c14100f}
-  .card .w{font-size:18px;font-weight:800}
-  .card .ph{color:var(--soft);font-size:12px;margin:2px 0 8px}
-  .card img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px;background:#f0e9de}
-  .card .zh{font-size:13px;color:#4a3f36;margin-top:8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-  .tag{display:inline-block;font-size:11px;padding:1px 7px;border-radius:99px;background:#f0e9de;color:var(--soft);margin-right:4px}
-  dialog{border:0;border-radius:18px;padding:0;max-width:620px;width:calc(100% - 32px);background:var(--paper);color:var(--ink)}
-  dialog::backdrop{background:#1c141066;backdrop-filter:blur(2px)}
-  .dbody{padding:22px}
-  .dbody h2{margin:0;font-size:26px}
-  .dbody .ph{color:var(--soft);margin:4px 0 14px}
-  .dbody img{width:100%;border-radius:12px;margin-bottom:14px}
-  .sec{margin-top:14px;padding-top:12px;border-top:1px dashed var(--line)}
-  .sec h4{margin:0 0 6px;font-size:13px;color:var(--fruit);letter-spacing:.05em}
-  .ex{background:#faf6f0;border-radius:10px;padding:10px 12px;margin-bottom:8px;font-size:14px}
-  .ex .zh{color:var(--soft);font-size:13px}
-  .rem{background:#fdf6e8;border-radius:10px;padding:10px 12px;font-size:14px;color:#7a5a1e}
-  .close{position:absolute;top:12px;right:14px;border:0;background:#f0e9de;border-radius:99px;width:30px;height:30px;cursor:pointer;font-size:16px}
-  footer{text-align:center;color:var(--soft);font-size:12px;padding:0 20px 40px}
-  footer a{color:var(--fruit)}
-</style>
+<title>CozyLingo Open · 英语词库与今日小课</title>
+<link rel="stylesheet" href="src/app.css">
+<link rel="stylesheet" href="src/orchard.css">
 </head>
 <body>
 <header>
-  <h1>CozyLingo Open · 词库浏览器</h1>
+  <h1>CozyLingo Open</h1>
   <div class="sub" id="meta">加载中…</div>
+  <nav id="tabs"></nav>
 </header>
 
-<div class="bar">
+<div class="bar" id="filters">
   <input id="q" type="search" placeholder="搜单词或中文释义…" autocomplete="off">
   <select id="lib"><option value="">全部词书</option></select>
   <select id="topic"><option value="">全部话题</option></select>
   <span class="count" id="count"></span>
 </div>
 
-<main><div class="grid" id="grid"></div></main>
+<main>
+  <section id="view-browse"><div class="grid" id="grid"></div></section>
+
+  <section id="view-today" hidden>
+    <div id="today-head"></div>
+    <div id="today-body"></div>
+  </section>
+
+  <section id="view-star" hidden>
+    <div id="star-host"></div>
+    <p class="muted small" style="text-align:center;margin-top:10px">
+      12,594 个词按「话题 = 方位、词频 = 海拔」铺成一座山。拖动旋转、滚轮缩放，点按星星查看单词；
+      学过的词会点亮，掌握的词变成金色。进度来自你本机的学习记录。
+    </p>
+  </section>
+</main>
 
 <dialog id="dlg"><div class="dbody" id="dbody"></div></dialog>
 
 <footer>
   数据授权 <a href="CONTENT_LICENSE.md">CC BY 4.0</a> · 词头/音标/释义/例句来自
   <a href="https://github.com/kylebing/english-vocabulary">kylebing/english-vocabulary</a>（BSD-3-Clause）·
-  记忆法/话题/词频/插画为 CozyLingo 原创
+  记忆法/话题/词频/插画为 CozyLingo 原创 · 复习调度用 <a href="docs/fsrs.md">FSRS</a>
 </footer>
 
-<script>
-const PAGE = 60;
-let all = [], view = [], shown = 0, cur = null;
-
-fetch('data/words.json').then(r => r.json()).then(d => {
-  all = d.words || [];
-  document.getElementById('meta').textContent =
-    `${all.length} 个词条 · ${d.license} · 版本 ${d.version || '-'}`;
-  const libs = {}, tops = {};
-  all.forEach(w => { (w.libs || []).forEach(l => libs[l] = (libs[l] || 0) + 1); tops[w.topic] = (tops[w.topic] || 0) + 1; });
-  const lb = document.getElementById('lib');
-  Object.entries(libs).sort((a, b) => b[1] - a[1]).forEach(([k, n]) => lb.add(new Option(`${k}（${n}）`, k)));
-  const tp = document.getElementById('topic');
-  Object.entries(tops).sort((a, b) => b[1] - a[1]).forEach(([k, n]) => tp.add(new Option(`${k}（${n}）`, k)));
-  apply();
-});
-
-function apply() {
-  const q = document.getElementById('q').value.trim().toLowerCase();
-  const lib = document.getElementById('lib').value, topic = document.getElementById('topic').value;
-  view = all.filter(w => {
-    if (lib && !(w.libs || []).includes(lib)) return false;
-    if (topic && w.topic !== topic) return false;
-    if (!q) return true;
-    return w.word.toLowerCase().includes(q) ||
-      (w.senses || []).some(s => (s.zh || '').includes(q) || (s.en || '').toLowerCase().includes(q));
-  });
-  document.getElementById('grid').innerHTML = '';
-  shown = 0;
-  document.getElementById('count').textContent = `${view.length} 条`;
-  more();
-}
-
-function more() {
-  const g = document.getElementById('grid');
-  const frag = document.createDocumentFragment();
-  view.slice(shown, shown + PAGE).forEach(w => {
-    const s = (w.senses || [])[0] || {};
-    const el = document.createElement('div');
-    el.className = 'card';
-    el.innerHTML =
-      `<div class="w">${esc(w.word)}</div>
-       <div class="ph">${esc(w.ipa_us || w.ipa_uk || '')} ${s.pos ? '· ' + esc(s.pos) : ''}</div>
-       <img loading="lazy" src="${w.img || ''}" alt="" onerror="this.style.display='none'">
-       <div class="zh">${esc(s.zh || '')}</div>
-       <div style="margin-top:8px"><span class="tag">${esc(w.topic || '')}</span>${(w.libs||[]).map(l=>`<span class="tag">${esc(l)}</span>`).join('')}</div>`;
-    el.onclick = () => open(w);
-    frag.appendChild(el);
-  });
-  g.appendChild(frag);
-  shown += PAGE;
-}
-
-function open(w) {
-  cur = w;
-  const d = document.getElementById('dlg');
-  document.getElementById('dbody').innerHTML =
-    `<button class="close" onclick="document.getElementById('dlg').close()">✕</button>
-     <h2>${esc(w.word)}</h2>
-     <div class="ph">${esc(w.ipa_uk ? '英 ' + w.ipa_uk : '')} ${esc(w.ipa_us ? '· 美 ' + w.ipa_us : '')}</div>
-     ${w.img ? `<img src="${w.img}" alt="" onerror="this.style.display='none'">` : ''}
-     <div class="sec"><h4>释义</h4>${(w.senses || []).map(s =>
-        `<div class="ex"><b>${esc(s.pos || '')}</b> ${esc(s.zh || '')}${s.en ? `<div class="zh">${esc(s.en)}</div>` : ''}</div>`).join('')}</div>
-     ${(w.ex || []).length ? `<div class="sec"><h4>例句</h4>${w.ex.map(e =>
-        `<div class="ex">${esc(e.en)}<div class="zh">${esc(e.zh || '')}</div></div>`).join('')}</div>` : ''}
-     ${w.remmethod ? `<div class="sec"><h4>记忆法</h4><div class="rem">${esc(w.remmethod)}</div></div>` : ''}
-     <div class="sec"><h4>标注</h4><span class="tag">${esc(w.topic || '')}</span>
-       <span class="tag">词频 #${w.frequency || '-'}</span>
-       ${(w.libs || []).map(l => `<span class="tag">${esc(l)}</span>`).join('')}
-       ${w.tags ? `<span class="tag">${esc(w.tags)}</span>` : ''}</div>`;
-  d.showModal();
-}
-
-const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-
-document.getElementById('q').addEventListener('input', debounce(apply, 200));
-document.getElementById('lib').addEventListener('change', apply);
-document.getElementById('topic').addEventListener('change', apply);
-addEventListener('scroll', () => {
-  if (innerHeight + scrollY > document.body.offsetHeight - 600) more();
-});
-function debounce(fn, ms) { let t; return () => { clearTimeout(t); t = setTimeout(fn, ms); }; }
-</script>
+<!-- fsrs.js 与服务端逐字相同，是 CommonJS 模块；用下面两行 shim 加载 -->
+<script>window.module = { exports: {} };</script>
+<script src="src/fsrs.js"></script>
+<script type="module" src="src/app.js"></script>
 </body>
 </html>

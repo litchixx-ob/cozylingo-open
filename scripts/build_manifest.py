@@ -15,7 +15,11 @@ def sha256(p):
 
 items = []
 for dp, _dn, fn in os.walk(ROOT):
-    if ".git" in dp.split(os.sep) or ".cache" in dp.split(os.sep):
+    parts = dp.split(os.sep)
+    # 跳过：git 内部、本地缓存、以及不进 git 的发音音频（约 300MB，走 Releases 分发）
+    if ".git" in parts or ".cache" in parts:
+        continue
+    if os.path.join("data", "audio") in dp:
         continue
     for f in fn:
         fp = os.path.join(dp, f)

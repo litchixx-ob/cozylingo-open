@@ -4,6 +4,9 @@ dist/
 .next/
 out/
 
+# 发音音频（约 260MB，走 GitHub Releases 分发，不进 git）
+data/audio/
+
 # 本地缓存与工具（导出脚本、源数据不随仓库分发）
 .cache/
 .local/

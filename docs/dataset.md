@@ -37,10 +37,35 @@
 
 每个词书包含的 `id` 列表。
 
+## `data/orchard.json`
+
+星图引擎用的紧凑格式（由 `scripts/build_orchard.py` 从 `words.json` 生成）：
+
+```json
+{
+  "universe": "cozylingo-open",
+  "topics": ["饮食", "家居", "..."],
+  "words": [["abandon", 12, 3]],
+  "stats": { "total": 12594, "topics": 25, "bandSource": {...}, "byBand": {...}, "byTopic": {...} }
+}
+```
+
+- `words` 每行是 `[词, 话题下标, 海拔档 1–5]`，`话题下标` 指向 `topics` 数组
+- 海拔档按**词频序号的分位数**分档（第 0–20% 为山脚，80–100% 为雪线），保证五档均衡、山形读得出来
+- 约 1/3 的词条没有词频数据（7 个词书独有、不在主词频表里），其海拔按**所属词书难度**估计，
+  数量记在 `stats.bandSource.estimatedFromBook`
+
 ## 媒体
 
 `public/img/<id>.webp`（512px）、`public/thumb/<id>.webp`（256px）。
 并非每个词都有插画，以 `img` 字段是否存在为准。
+
+发音不在 git 里，见 README「发音音频」：
+
+```
+data/audio/us/<id>.mp3     美音
+data/audio/uk/<id>.mp3     英音
+```
 
 ## 授权
 
